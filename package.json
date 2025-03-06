@@ -1,0 +1,38 @@
+{
+  "name": "crb.fashion",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "rm -rf .next && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write .",
+    "fix:img-tags": "npx replace-in-file '<img([^>]*)src=\"([^\"]*)\"([^>]*)>' '<Image$1src=\"$2\"$3 width={500} height={300} alt=\"Image\" />' 'app/**/*.tsx' --isRegex",
+    "fix:missing-props": "npx replace-in-file '<Image([^>]*)src=\"([^\"]*)\"([^>]*?)(?!width=|height=)(/?)>' '<Image$1src=\"$2\"$3 width={500} height={300} alt=\"Image\" $4>' 'app/**/*.tsx' --isRegex",
+    "fix:images": "bash scripts/fix-images.sh",
+    "fix:all": "npm run lint:fix && npm run format && npm run fix:images && npm run fix:missing-props",
+    "fix:node": "node scripts/fix-missing-props.js"
+  },
+  "dependencies": {
+    "next": "15.2.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.1",
+    "glob": "^10.4.5",
+    "prettier": "^3.2.5",
+    "replace-in-file": "^7.1.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  /* Modern feminine color palette */
+  --background: #ffffff;
+  --foreground: #2c2c2c;
+  --primary: #f8b6cd;
+  --primary-dark: #e48fb3;
+  --secondary: #f9e1e0;
+  --accent: #d1a7c7;
+  --neutral-100: #f8f8f8;
+  --neutral-200: #f0f0f0;
+  --neutral-300: #e4e4e4;
+  --neutral-400: #d1d1d1;
+  --neutral-500: #b1b1b1;
+  --neutral-600: #8a8a8a;
+  --neutral-700: #636363;
+  --neutral-800: #3d3d3d;
+  --neutral-900: #1a1a1a;
+  --success: #a8d5ba;
+  --warning: #f9d5a7;
+  --error: #f8b6b6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a1a1a;
+    --foreground: #f0f0f0;
+    --primary: #e48fb3;
+    --primary-dark: #c77598;
+    --secondary: #d1a7c7;
+    --accent: #b68cb0;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+
+/* Modern button styles */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--neutral-900);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Elegant typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Subtle animations */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-500);
+}
